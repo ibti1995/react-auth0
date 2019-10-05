@@ -1,21 +1,16 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import "./body.css";
-import PermisAutoService from "../services/PermisAutoService";
-class body extends Component {
+import TrainingService from "../../services/TrainingService";
+
+class Cours extends Component {
   constructor(props) {
     super(props);
-    this.state = { listePermis: [] };
-    this.refreshPermisList = this.refreshPermisList.bind(this);
+    this.state = { trainingList: [] };
   }
-  componentDidMount() {
-    this.refreshPermisList();
-  }
-  refreshPermisList() {
-    PermisAutoService.autoPermisListPermis("admin").then(response => {
-      let newProducts = [...this.state.listePermis];
-      newProducts.push(response.data);
-      this.setState({ listePermis: newProducts });
+  refreshTrainingList() {
+    TrainingService.showTrainingList("admin").then(response => {
+      let newTraining = [...this.state.trainingList];
+      newTraining.push(response.data);
+      this.setState({ trainingList: newTraining });
     });
   }
   render() {
@@ -23,7 +18,7 @@ class body extends Component {
       <div>
         <div className="album py-5 bg-light">
           <div className="container">
-            {this.state.listePermis.map(lists =>
+            {this.state.map(lists =>
               lists.content.map((list, i) => (
                 <div className="row">
                   <div className="col-md-4">
@@ -41,29 +36,19 @@ class body extends Component {
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c" />
                         <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                          {list.titre}
+                          Entrainement
                         </text>
                       </svg>
                       <div className="card-body">
-                        <p className="card-text">
-                          {list.description}
-                          <br />
-                          price : {list.prix}
-                        </p>
+                        <p className="card-text">kkkk</p>
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="btn-group">
-                            <button
-                              type="button"
+                            <Link
+                              to="/FirstCourse"
                               className="btn btn-sm btn-outline-secondary"
                             >
-                              View
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-sm btn-outline-secondary"
-                            >
-                              Buy
-                            </button>
+                              Commencer l'entrainement
+                            </Link>
                           </div>
                           <small className="text-muted">9 mins</small>
                         </div>
@@ -79,5 +64,4 @@ class body extends Component {
     );
   }
 }
-
-export default body;
+export default Cours;

@@ -10,9 +10,21 @@ class Nav extends Component {
         <li>
           <Link to="/Profile">Profile</Link>
         </li>
-       
+
         <li>
           <Link to="/Admin">Admin</Link>
+        </li>
+        <li>
+          <Link to="/Subscribe">Subscribe</Link>
+        </li>
+        <li>
+          <Link to="/firstPage">fisrt Page</Link>
+        </li>
+        <li>
+          <Link to="/SecondPage">Secod page</Link>
+        </li>
+        <li>
+          <Link to="/TrainingCrud">Training Crud</Link>
         </li>
       </ul>
     );

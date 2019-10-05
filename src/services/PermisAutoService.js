@@ -4,6 +4,10 @@ const COURSE_API_URL = "http://localhost:4040";
 const INSTRUCTOR_API_URL = `${COURSE_API_URL}/${INSTRUCTOR}`;
 
 class PermisAutoService {
+  addPermisAuto(permis) {
+    console.log("am in service", permis);
+    return axios.post(`${INSTRUCTOR_API_URL}/add`, permis);
+  }
   autoPermisListPermis(name) {
     return axios.get(`${INSTRUCTOR_API_URL}/showpermis`);
   }
