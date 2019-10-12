@@ -13,9 +13,9 @@ class body extends Component {
   }
   refreshPermisList() {
     PermisAutoService.autoPermisListPermis("admin").then(response => {
-      let newProducts = [...this.state.listePermis];
-      newProducts.push(response.data);
-      this.setState({ listePermis: newProducts });
+      let newPermis = [...this.state.listePermis];
+      newPermis.push(response.data);
+      this.setState({ listePermis: newPermis });
     });
   }
   render() {

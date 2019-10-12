@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import TrainingService from "../../services/TrainingService";
 
+import { Link } from "react-router-dom";
 class Cours extends Component {
   constructor(props) {
     super(props);
     this.state = { trainingList: [] };
+    this.refreshTrainingList = this.refreshTrainingList.bind(this);
+  }
+  componentDidMount() {
+    this.refreshTrainingList();
   }
   refreshTrainingList() {
     TrainingService.showTrainingList("admin").then(response => {
@@ -16,10 +21,10 @@ class Cours extends Component {
   render() {
     return (
       <div>
-        <div className="album py-5 bg-light">
-          <div className="container">
-            {this.state.map(lists =>
-              lists.content.map((list, i) => (
+        {this.state.trainingList.map(lists =>
+          lists.content.map((list, i) => (
+            <div className="album py-5 bg-light">
+              <div className="container">
                 <div className="row">
                   <div className="col-md-4">
                     <div className="card mb-4 shadow-sm">
@@ -56,10 +61,10 @@ class Cours extends Component {
                     </div>
                   </div>
                 </div>
-              ))
-            )}
-          </div>
-        </div>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     );
   }

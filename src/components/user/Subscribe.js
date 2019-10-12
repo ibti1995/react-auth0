@@ -30,7 +30,12 @@ class Subscribe extends Component {
     };
 
     UserService.subscribe(user).then(response => {
-      console.log("response heeeeeeeeere", response);
+      console.log("response heeeeeeeeere", response.status);
+      if (response.status === 200) {
+        this.props.history.push("/");
+      } else {
+        console.log("erreuur");
+      }
     });
   }
   validateForm() {
@@ -133,49 +138,3 @@ class Subscribe extends Component {
   }
 }
 export default Subscribe;
-
-/*
-
-
-
-
-<Formik
-initialValues={this.initialValues}
-validate={this.validate}
-onSubmit={this.onSubmit}
->
-{props => (
-  <Form>
-    <fieldset className="form-group">
-      <label>Name</label>
-      <Field className="form-control" type="text" name="name" />
-    </fieldset>
-    <fieldset className="form-group">
-      <label> Last name</label>
-      <Field className="form-control" type="text" name="lastName" />
-    </fieldset>
-    <fieldset className="form-group">
-      <label>Date of birth</label>
-
-      <Field
-        className="form-control"
-        type="text"
-        name="dateOfBirth"
-      />
-    </fieldset>
-    <fieldset className="form-group">
-      <label>Email</label>
-
-      <Field className="form-control" type="text" name="email" />
-    </fieldset>
-    <fieldset className="form-group">
-      <label>Password</label>
-
-      <Field className="form-control" type="text" name="password" />
-    </fieldset>
-    <button className="btn btn-success" type="submit">
-      Save
-    </button>
-  </Form>
-)}
-</Formik>*/

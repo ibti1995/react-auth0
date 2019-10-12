@@ -13,13 +13,18 @@ class AddPermis extends Component {
   onSubmit(values) {
     values.preventDefault();
     let permis = {
-      titre: this.state.titre,
+      description: this.state.desc,
       prix: this.state.prix,
-      description: this.state.desc
+      titre: this.state.titre
     };
-    console.log("userrrr", permis);
-    PermisAutoService.addPermisAuto(permis).then(response => {
-      console.log("response heeeeeeeeere", response);
+
+    PermisAutoService.addPermisAuto(permis).then(res => {
+      if (res.status === 200) {
+        console.log("res.status", res.status);
+        this.props.history.push("/Admin");
+      } else {
+        console.log("erreuur");
+      }
     });
   }
   onChangeDesc(e) {

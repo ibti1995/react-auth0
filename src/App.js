@@ -10,6 +10,7 @@ import FirstPage from "./components/FirstPage";
 import SecondPage from "./components/SecondPage";
 import FirstCourse from "./components/CoursesFolder/FisrtCourse";
 import TrainingCrud from "./components/Admin/TrainingCrud";
+import Cours from "./components/CoursesFolder/Cours";
 function App() {
   return (
     <>
@@ -21,7 +22,7 @@ function App() {
       <Route path="/Subscribe" component={Subscribe} />
       <Route path="/firstPage" component={FirstPage} />
       <Route path="/SecondPage" component={SecondPage} />
-
+      <Route path="/Cours" component={Cours} />
       <Route path="/FistCourse" component={FirstCourse} />
 
       <Route path="/TrainingCrud" component={TrainingCrud} />

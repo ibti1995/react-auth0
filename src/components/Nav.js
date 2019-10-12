@@ -15,9 +15,6 @@ class Nav extends Component {
           <Link to="/Admin">Admin</Link>
         </li>
         <li>
-          <Link to="/Subscribe">Subscribe</Link>
-        </li>
-        <li>
           <Link to="/firstPage">fisrt Page</Link>
         </li>
         <li>

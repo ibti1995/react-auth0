@@ -1,6 +1,6 @@
 import axios from "axios";
 const INSTRUCTOR = "admin";
-const COURSE_API_URL = "http://localhost:4040";
+const COURSE_API_URL = "http://localhost:1254";
 const INSTRUCTOR_API_URL = `${COURSE_API_URL}/${INSTRUCTOR}`;
 
 class PermisAutoService {

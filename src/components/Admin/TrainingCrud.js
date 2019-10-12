@@ -60,11 +60,10 @@ class TrainingCrud extends Component {
               {this.state.trainingList.map(lists =>
                 lists.content.map((list, i) => (
                   <tr key={i}>
-                    {console.log("je suis laaaa", list.id, i)}
                     <td>{i + 1}</td>
-                    <td>{list.titre}</td>
-                    <td>{list.type}</td>
-                    <td>{list.description}</td>
+                    <td>{list.titreEntrainement}</td>
+                    <td>{list.typeEntrainement}</td>
+                    <td>{list.descEntrainement}</td>
                     <td>
                       <button
                         className="btn btn-warning"

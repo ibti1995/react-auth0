@@ -8,8 +8,8 @@ class FirstPage extends Component {
       <div>
         <h2>Code de la route </h2>
 
-        <div class="row">
-          <div class="column1">
+        <div className="row">
+          <div className="column1">
             <h2>Entrainement</h2>
             <p>
               Votre access est ilimité à la plateforme de revision du code de la
@@ -24,14 +24,18 @@ class FirstPage extends Component {
               Commencer l'entrainement
             </Link>
           </div>
-          <div class="column2">
+          <div className="column2">
             <h2>Examen</h2>
             <p>
               Depuis le 1er janvier , l'examen du code de la route la routeest
               organisé par des entreprise privées telle que la poste ou SGS au
               tarif fixe de 30E
             </p>
-            <Link className="c1" to="/Cours" className="btn btn-sm bg-warning">
+            <Link
+              className="c1"
+              to="/SecondPage"
+              className="btn btn-sm bg-warning"
+            >
               Reserver ma place d'examen
             </Link>
           </div>

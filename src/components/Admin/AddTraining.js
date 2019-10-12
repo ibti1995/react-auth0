@@ -21,14 +21,20 @@ class AddTraining extends Component {
   onSubmit(values) {
     values.preventDefault();
     let training = {
-      desc_entrainement: this.state.description,
-      titre_entrainement: this.state.titre,
-      type_entrainement: this.state.type,
+      descEntrainement: this.state.description,
+      titreEntrainement: this.state.titre,
+      typeEntrainement: this.state.type,
       url: this.state.url
     };
 
-    TrainingService.addTraining(training).then(response => {
-      console.log("response heeeeeeeeere", response);
+    TrainingService.addTraining(training).then(res => {
+     
+      if (res.status === 200) {
+        console.log("res.status", res.status);
+        this.props.history.push("/TrainingCrud");
+      } else {
+        console.log("erreuur");
+      }
     });
   }
   onChangeDesc(e) {
