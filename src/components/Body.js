@@ -23,9 +23,10 @@ class body extends Component {
       <div>
         <div className="album py-5 bg-light">
           <div className="container">
-            {this.state.listePermis.map(lists =>
-              lists.content.map((list, i) => (
+           
                 <div className="row">
+                {this.state.listePermis.map(lists =>
+              lists.content.map((list, i) => (
                   <div className="col-md-4">
                     <div className="card mb-4 shadow-sm">
                       <svg
@@ -70,9 +71,9 @@ class body extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
               ))
-            )}
+              )}  </div>
+              
           </div>
         </div>
       </div>

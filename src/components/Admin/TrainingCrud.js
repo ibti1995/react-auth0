@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import TrainingService from "../../services/TrainingService";
 import AddTraining from "./AddTraining";
-import { MDBBtn } from "mdbreact";
 import "./popupStyle.css";
 
 class TrainingCrud extends Component {

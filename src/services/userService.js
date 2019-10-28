@@ -9,13 +9,8 @@ class UserService {
     return axios.post(`${INSTRUCTOR_API_URL}/subscribe`, user);
   }
   login(user) {
-    console.log("emaiiiiiiiil", user.email);
-
-    return axios.post(
-      `${INSTRUCTOR_API_URL}/login/${user.email}`,
-      user.password
-    );
-  }
+ return axios.post(`${INSTRUCTOR_API_URL}/login/${user.email}`, user);
+  } 
 }
 
 export default new UserService();

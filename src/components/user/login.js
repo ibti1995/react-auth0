@@ -16,7 +16,7 @@ export default class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-/*  validateForm() {
+  /*  validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }*/
 
@@ -32,11 +32,20 @@ export default class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
+
     UserService.login(user).then(res => {
-      console.log("res", res.status);
+      console.log("reeeeeeeeeeees", res);
       if (res.status === 200) {
-        console.log("res.status", res.status);
-        this.props.history.push("/");
+        if (res.data === "user") {
+          localStorage.setItem("user", user.email);
+          this.setState({ adminIsAuthenticated: true });
+          this.props.history.push("/");
+        } else if (res.data === "admin") {
+          console.log("res admin", res);
+          localStorage.setItem("Admin", user.email);
+          this.setState({ adminIsAuthenticated: true });
+          this.props.history.push("/");
+        }
       } else {
         console.log("erreuur");
       }

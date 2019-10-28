@@ -7,9 +7,10 @@ class Subscribe extends Component {
     this.state = {
       name: "",
       lastName: "",
-      email: "",
       dateOfBirth: "",
-      password: ""
+      email: "",
+      password: "",
+      role: ""
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
@@ -21,6 +22,15 @@ class Subscribe extends Component {
 
   onSubmit(values) {
     values.preventDefault();
+    /*let role = null;
+    UserService.getRole("user").then(response => {
+      if (response.status == 200) {
+        role = response.config.data;
+      } else {
+        console.log("erreurrr role");
+      }
+    });*/
+
     let user = {
       nom: this.state.name,
       prenom: this.state.lastName,
@@ -28,10 +38,10 @@ class Subscribe extends Component {
       email: this.state.email,
       password: this.state.password
     };
-
     UserService.subscribe(user).then(response => {
       console.log("response heeeeeeeeere", response.status);
       if (response.status === 200) {
+        localStorage.setItem("user", response.config.data);
         this.props.history.push("/");
       } else {
         console.log("erreuur");

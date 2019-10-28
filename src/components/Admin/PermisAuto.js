@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PermisAutoService from "../../services/PermisAutoService";
 import { MDBBtn } from "mdbreact";
-import AddPermis from "./AddPermis";
 import Popup from "./Popup";
 
 class PermisAuto extends Component {
